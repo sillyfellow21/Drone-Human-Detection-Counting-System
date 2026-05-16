@@ -300,3 +300,27 @@ All documentation is included and ready for review:
 - **[docs/FINAL_CHECKLIST.md](docs/FINAL_CHECKLIST.md)** — Rubric verification (100+ points)
 - **[docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md)** — 3–5 minute demo narration
 - **[PIPELINE_EXECUTION_REPORT.md](PIPELINE_EXECUTION_REPORT.md)** — Execution summary with actual results
+
+## What this project achieved (concise)
+
+- **Objective:** build an end-to-end VisDrone aerial detector for `human` and `car`, produce reproducible training, inference, counting, and error analysis artifacts.
+- **Evaluation snapshot (validation split):**
+    - **mAP50:** 0.195 — mean Average Precision at IoU=0.5 (overall)
+    - **mAP50-95:** 0.0983 — average precision averaged across IoU thresholds 0.5:0.05:0.95
+    - **Human mAP50:** 0.0775 — human detections are challenging due to tiny object size
+    - **Car mAP50:** 0.313 — stronger performance for larger vehicle instances
+- **Inference speed (CPU):** ~1.5 fps (~612 ms/image) on the environment used for evaluation.
+
+Interpretation:
+
+- These numbers show the model successfully learns to detect both classes, but accuracy is limited for very small/person-scale objects in aerial imagery. The low human mAP50 reflects the tiny/occluded people present in VisDrone.
+- The metrics in this README are measured on the validation split with the trained checkpoint referenced in the demo command and are intended as a reproducible snapshot rather than an upper bound.
+
+How to improve accuracy (practical next steps):
+
+- Train with higher input resolution or tiled/patch-based training to better resolve tiny objects.
+- Use longer fine-tuning on GPU with larger batch sizes and learning-rate schedules.
+- Add hard-negative mining, focal/loss weighting, or class-balanced sampling to handle imbalance and reduce FPs.
+- Experiment with multi-scale ensembles or detection architectures tailored for tiny objects (tiling, DETR variants, or specialized heads).
+
+These actions typically raise human mAP significantly for aerial datasets; the current numbers are an honest evaluation of a compact YOLOv8s-based pipeline tuned for reproducibility and CPU inference.
