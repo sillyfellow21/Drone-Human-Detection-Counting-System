@@ -98,6 +98,19 @@ The reusable logic lives in `src/`, which keeps counting, visualization, parsing
 
 For a deeper breakdown of the system flow and module boundaries, see [docs/architecture.md](docs/architecture.md) and [docs/REPORT.md](docs/REPORT.md).
 
+## Architecture Overview
+
+This repository separates execution stages and reusable logic to make the pipeline reproducible and easy to extend:
+
+- **Top-level flow:** raw VisDrone → `scripts/prepare_dataset.py` → YOLO dataset → `scripts/train.py` → trained checkpoint → `scripts/infer_images.py` / `scripts/infer_video.py` → counting + visualization → `scripts/evaluate.py` / `scripts/error_analysis.py` → metrics + failure analysis (optional `scripts/track_video.py` for tracking).
+- **Data preparation:** `scripts/prepare_dataset.py` and `src/visdrone.py` parse VisDrone CSVs, filter ignored regions, remap classes, and write YOLO labels.
+- **Training:** `scripts/train.py` uses `configs/visdrone_yolo.yaml` and a pretrained YOLOv8s backbone to fine-tune on the prepared data (outputs in `runs/`).
+- **Inference and counting:** `scripts/infer_images.py` + `src/counting.py` perform detection, per-image human counting, and save annotated images (see demo in `results/demo_infer_small/`).
+- **Evaluation and error analysis:** `scripts/evaluate.py` and `scripts/error_analysis.py` call helpers in `src/evaluation.py` to report mAP, precision/recall, and analyze FP/FN cases.
+- **Video and tracking:** `scripts/track_video.py` + `src/tracking.py` provide optional temporal identity assignment (ByteTrack wrapper) for smoother video counts.
+
+Refer to [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full execution architecture.
+
 ## 📥 Dataset: VisDrone
 
 **Download:** https://www.kaggle.com/datasets/banuprasadb/visdrone-dataset/versions/1?resource=download
