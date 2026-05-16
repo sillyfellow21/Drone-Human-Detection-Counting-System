@@ -84,6 +84,20 @@ python scripts/track_video.py --weights outputs/train/visdrone_yolo/weights/best
 └── requirements.txt                 # Python dependencies
 ```
 
+## What the code does
+
+The repository is organized as a small, runnable ML pipeline:
+
+- `scripts/prepare_dataset.py` turns the VisDrone annotations into YOLO format.
+- `scripts/train.py` trains the detector from the prepared dataset.
+- `scripts/infer_images.py` runs batch inference and counting on validation images.
+- `scripts/evaluate.py` and `scripts/error_analysis.py` summarize quality and failure modes.
+- `scripts/infer_video.py` and `scripts/track_video.py` extend the same detector to video.
+
+The reusable logic lives in `src/`, which keeps counting, visualization, parsing, and evaluation separate from the execution scripts. Training configuration is centralized in `configs/visdrone_yolo.yaml` so the model setup stays reproducible.
+
+For a deeper breakdown of the system flow and module boundaries, see [docs/architecture.md](docs/architecture.md) and [docs/REPORT.md](docs/REPORT.md).
+
 ## 📥 Dataset: VisDrone
 
 **Download:** https://www.kaggle.com/datasets/banuprasadb/visdrone-dataset/versions/1?resource=download
