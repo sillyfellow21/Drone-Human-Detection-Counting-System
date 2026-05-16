@@ -153,30 +153,9 @@ flowchart TB
 - `error_analysis.py` reports false positives and false negatives and can save examples.
 - If metrics are unavailable, use the placeholders in the report and update after running evaluation.
 
-## Results gallery
+## Source code entry point
 
-After running inference and dataset reports, check:
-
-- `outputs/dataset_samples/train/`
-- `outputs/dataset_samples/val/`
-- `outputs/inference_images/`
-
-### Source code entry point
-
-The runnable Python source currently kept in the repo is:
-
-- [scripts/infer_images.py](scripts/infer_images.py)
-
-It runs VisDrone image inference on a small sample and saves annotated detection results to `results/demo_infer_small/`.
-
-## Folder structure
-
-```
-scripts/
-  infer_images.py
-results/
-  demo_infer_small/
-```
+The runnable Python source currently kept in the repo is [scripts/infer_images.py](scripts/infer_images.py).
 
 ## Troubleshooting
 
@@ -220,7 +199,7 @@ results/
 - Complete JSONL predictions log
 - Training checkpoint (22.5 MB best.pt)
 
-See [docs/RESULTS.md](docs/RESULTS.md) for detailed metrics and analysis.
+See [docs/REPORT.md](docs/REPORT.md) for the formal methodology and results discussion.
 
 ## Why this matters (recruiter view)
 

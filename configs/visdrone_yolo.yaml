@@ -1,0 +1,14 @@
+path: data/visdrone_yolo
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: human
+  1: car
+
+nc: 2
+imgsz: 1024
+epochs: 80
+batch: 4
+optimizer: SGD
