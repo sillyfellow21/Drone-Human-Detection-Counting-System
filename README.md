@@ -2,18 +2,6 @@
 
 A submission-ready pipeline for VisDrone aerial imagery that detects humans and cars, counts total humans per image, visualizes predictions, and optionally runs tracking. The system focuses on practical model training, clean preprocessing, and recruiter-friendly documentation.
 
-## 📊 Evaluation Rubric Coverage
-
-This project implements a complete computer vision pipeline aligned with evaluation criteria:
-
-| Criterion | Weight | Implementation |
-|-----------|--------|-----------------|
-| **Dataset Understanding & Preprocessing** | 20% | `src/visdrone.py`, `scripts/prepare_dataset.py`, [DATASET.md](DATASET.md) |
-| **Training & Detection Pipeline** | 30% | `scripts/train.py`, `src/config.py`, `configs/visdrone_yolo.yaml` |
-| **Counting Logic & Visualization** | 20% | `src/counting.py`, `src/visualize.py`, `scripts/infer_images.py` |
-| **Problem Solving & Analysis** | 15% | `scripts/error_analysis.py`, `src/evaluation.py`, [IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md) |
-| **Code Quality & Documentation** | 10% | `src/` (modular, well-commented), [REPORT.md](docs/REPORT.md) |
-| **Demonstration & Communication** | 5% | This README, sample outputs, execution results |
 
 ## 🚀 Quickstart
 
