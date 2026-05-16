@@ -15,7 +15,6 @@ pip install -r requirements.txt
    **→ See [DATASET.md](DATASET.md) for download link and setup instructions**  
    **→ Dataset Link: https://www.kaggle.com/datasets/banuprasadb/visdrone-dataset/versions/1?resource=download**
 
-3) Extract dataset and prepare YOLO-format data
 
 3) Extract dataset and prepare YOLO-format data
 
@@ -290,18 +289,7 @@ This project is a **production-grade computer vision system**—not a tutorial o
 - Inference works on CPU, making it deployment-flexible
 - Tracking integration is modular, optional, and production-ready
 
-## Documentation
 
-All documentation is included and ready for review:
-
-- **[README.md](README.md)** — This file; quickstart and overview
-- **[docs/RESULTS.md](docs/RESULTS.md)** — Detailed metrics, analysis, and visualizations
-- **[docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md)** — Technical architecture and design choices
-- **[docs/REPORT.md](docs/REPORT.md)** — Formal project report
-- **[docs/ARTIFACTS_INVENTORY.md](docs/ARTIFACTS_INVENTORY.md)** — Complete artifact listing
-- **[docs/FINAL_CHECKLIST.md](docs/FINAL_CHECKLIST.md)** — Rubric verification (100+ points)
-- **[docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md)** — 3–5 minute demo narration
-- **[PIPELINE_EXECUTION_REPORT.md](PIPELINE_EXECUTION_REPORT.md)** — Execution summary with actual results
 
 ## What this project achieved (concise)
 
