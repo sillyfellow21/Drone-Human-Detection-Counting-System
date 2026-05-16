@@ -176,7 +176,7 @@ flowchart TB
 
 ## Evaluation and error analysis
 
-- `evaluate.py` produces precision, recall, mAP, and val curves.
+- `evaluate.py` now runs a real Ultralytics validation pass and reports precision, recall, mAP, and per-class scores.
 - `error_analysis.py` reports false positives and false negatives and can save examples.
 - If metrics are unavailable, use the placeholders in the report and update after running evaluation.
 
@@ -226,10 +226,12 @@ python scripts/infer_images.py --limit 4 --output-dir results/demo_infer_small -
 ### Performance Metrics (Validation Set)
 | Metric | Value | Details |
 |--------|-------|---------|
-| **mAP50** | 0.195 | Overall average precision |
-| **mAP50-95** | 0.0983 | Averaged over IoU thresholds |
-| **Human mAP50** | 0.0775 | Tiny objects challenging |
-| **Car mAP50** | 0.313 | Better detection on larger objects |
+| **Precision** | 0.3196 | Fraction of predicted boxes that were correct |
+| **Recall** | 0.2625 | Fraction of ground-truth objects recovered |
+| **mAP50** | 0.1954 | Overall average precision at IoU=0.5 |
+| **mAP50-95** | 0.0985 | Averaged over IoU thresholds from 0.5 to 0.95 |
+| **Human mAP50** | 0.0775 | Tiny people are the hardest class |
+| **Car mAP50** | 0.3130 | Vehicles are easier to detect than humans |
 | **Inference Speed** | 1.5 fps | CPU performance (~612ms/image) |
 
 ### Dataset Processing
