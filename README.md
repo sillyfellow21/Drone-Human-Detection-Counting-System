@@ -157,6 +157,30 @@ flowchart TB
 
 The runnable Python source currently kept in the repo is [scripts/infer_images.py](scripts/infer_images.py).
 
+## Demo Outputs
+
+Generated with:
+
+```bash
+python scripts/infer_images.py --limit 4 --output-dir results/demo_infer_small --model runs/detect/outputs/train/visdrone_yolo_cpu_tiny/weights/best.pt
+```
+
+1. Dense aerial crowd scene with many human detections.
+
+    ![Dense crowd inference result](results/demo_infer_small/0000001_02999_d_0000005.jpg)
+
+2. Mid-density scene with mixed people and vehicles.
+
+    ![Mixed scene inference result](results/demo_infer_small/0000001_03499_d_0000006.jpg)
+
+3. High-occupancy frame showing strong counting output.
+
+    ![High-occupancy inference result](results/demo_infer_small/0000001_03999_d_0000007.jpg)
+
+4. Broad street scene with repeated pedestrian detections.
+
+    ![Street inference result](results/demo_infer_small/0000001_04527_d_0000008.jpg)
+
 ## Troubleshooting
 
 - If you see empty labels, confirm the raw dataset path and annotation folder names.
@@ -193,7 +217,7 @@ The runnable Python source currently kept in the repo is [scripts/infer_images.p
 - Sample visualizations: 20 error cases analyzed
 
 ### Generated Artifacts
-- 548 inference result images with detections + counts
+- 4 demo inference result images with detections + counts
 - 16 dataset understanding samples (train/val)
 - 20 error analysis visualizations (FP/FN)
 - Complete JSONL predictions log
